@@ -48,6 +48,6 @@ def find_invited_user(email, default=None):
     User = apps.get_model(settings.AUTH_USER_MODEL)
 
     try:
-        return User.objects.get(email=email)
+        return User.objects.get(email__iexact=email)
     except User.DoesNotExist:
         return default
